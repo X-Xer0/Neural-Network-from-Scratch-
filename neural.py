@@ -4,8 +4,6 @@ from matplotlib import pyplot as plt
 
 data = pd.read_csv("/home/xer0/Neuron/train.csv")
 
-#print(data.head())
-
 data = np.array(data)
 m, n = data.shape
 #print(data.shape)
