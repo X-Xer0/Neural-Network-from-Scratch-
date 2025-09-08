@@ -6,7 +6,7 @@ nnfs.init()
 
 class Layer_Dense:
     def __init__(self, n_inputs, n_neurons): 
-        self.weights = 0.01 * np.random.randn(n_inputs, n_neurons) 
+        self.weights = 0.01 * np.random.randn(n_inputs, n_neurons)
         self.biases = np.zeros((1, n_neurons))
 
     def forward(self, inputs):
@@ -64,5 +64,12 @@ activation2.forward(dense2.output)
 loss_function = Loss_CategoricalCrossentropy()
 loss = loss_function.calculate(activation2.output, y)
 
+#Accuracy
+predictions = np.argmax(activation2.output, axis=1)
+if len(y.shape) == 2:
+    y = np.argmax(y, axis=1)
+accuracy = np.mean(predictions==y)
+
 print(activation2.output[:5])
 print('loss:', loss)
+print('acc:', accuracy)
